@@ -1,72 +1,33 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Анализатор страниц</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
+@extends('layouts.app')
 
-</head>
-<body class="min-vh-100 d-flex flex-column">
-<header class="flex-shrink-0">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark px-3">
-{{--        <a class="navbar-brand" href="<?= $router->urlFor('root') ?>">Анализатор страниц</a>--}}
-        <a class="navbar-brand" href="#">Анализатор страниц</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="/">Главная</a>
-                </li>
+@section('title', 'Главная')
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/urls">Сайты</a>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
-</header>
-
-
-<main class="flex-grow-1">
+@section('content')
     <div class="container-lg mt-3">
         <h1></h1>
         <div class="row">
             <div class="col-12 col-md-10 col-lg-8 mx-auto border rounded-3 bg-light p-5">
                 <h1 class="display-3">Анализатор страниц</h1>
                 <p class="lead">Бесплатно проверяйте сайты на SEO пригодность</p>
-                <form action="/urls" method="post" class="row">
-                    <div class="col-8">
-                        <input type="text" name="url[name]" value="" class="form-control form-control-lg"
-                               placeholder="https://www.example.com">
-                    </div>
-                    <div class="col-2">
-                        <input type="submit" class="btn btn-primary btn-lg ms-3 px-5 text-uppercase mx-3"
-                               value="Проверить">
-                    </div>
 
+                <form action="{{ route('index') }}" method="POST"
+                      class="d-flex justify-content-center">
+                    @csrf
+                    <input type="text" name="name" value="" class="form-control form-control-lg"
+                           placeholder="https://www.example.com">
+                    <input type="submit" class="btn btn-primary btn-lg ms-3 px-5 text-uppercase mx-3"
+                           value="Проверить">
                 </form>
-
             </div>
         </div>
     </div>
-</main>
-<footer class="border-top py-3 mt-5 flex-shrink-0">
-    <div class="container-lg">
-        <div class="text-center">
-            <a href="https://hexlet.io/pages/about" target="_blank">Hexlet</a>
+    @if ($errors->any())
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
-    </div>
-</footer>
-
-
-<div id="wt-sky-root"></div>
-</body>
-</html>
+    @endif
+@endsection
