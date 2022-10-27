@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Url;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
+use Carbon\Carbon;
 
 class UrlController extends Controller
 {
-
     public function index()
     {
-        $urls = Url::all();
+        $urls = DB::table('urls')->orderBy('id')->paginate(10);
         $newUrl = new Url();
         return view('urls.index', compact('urls','newUrl' ));
     }
@@ -22,14 +23,18 @@ class UrlController extends Controller
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $this->validate($request, [
-            'name' => 'required|max:25|unique:urls',
+            'url.name' => 'required|max:255|url',
         ]);
-        $url = new Url();
-        $url->fill($request->all());
-        $url->save();
+        $newUrl = new Url();
+        $newUrl->fill($request->all());
+        $newUrl->save();
 
         return redirect()
             ->route('index');
     }
 
+    function show()
+    {
+        return view('urls.show');
+    }
 }

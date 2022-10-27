@@ -8,14 +8,13 @@ Route::get('/', function () {
 })->name('welcome');
 
 // запись и вывод url
-Route::get('/urls', [UrlController::class, 'index'])
-    ->name('index');
+//Route::get('/urls', [UrlController::class, 'index'])
+//    ->name('index');
+//
+//Route::post('urls', [UrlController::class, 'store'])
+//    ->name('store');
 
-Route::post('urls', [UrlController::class, 'store'])
-    ->name('store');
+Route::resource('urls', UrlController::class)->only([
+    'index', 'store', 'show'
+]);
 
-// Route::resource('urls', UrlController::class);
-
-Route::get('/show', function () {
-    return view('urls.show');
-})->name('show');
