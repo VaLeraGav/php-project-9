@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-//use App\Models\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+
 
 class UrlController extends Controller
 {
@@ -14,19 +14,24 @@ class UrlController extends Controller
     {
         $urls = DB::table('urls')->orderBy('id')->paginate(10);
         // $newUrl = new Url();
-        return view('urls.index', compact('urls' ));
+        return view('urls.index', compact('urls'));
     }
 
-    /**
-     * @throws ValidationException
-     */
-    public function store(Request $request): \Illuminate\Http\RedirectResponse
+    public function store(Request $request)
     {
-        $this->validate($request, [
+//        $this->validate($request, [
+//            'url.name' => 'url|required|max:255',
+//        ]);
+
+        $validator = Validator::make($request->all(), [
             'url.name' => 'url|required|max:255',
         ]);
 
-        // страница успешно добавлена
+        if ($validator->fails()) {
+            flash('Некорректный URL')->error();
+            return redirect()->route('welcome')->withErrors($validator);
+        }
+
         $newUrl = DB::table('urls')->insertGetId(
             [
                 'name' => $request,
@@ -43,4 +48,6 @@ class UrlController extends Controller
         $url = DB::table('urls')->find($id);
         return view('urls.show', compact('url'));
     }
+
+
 }

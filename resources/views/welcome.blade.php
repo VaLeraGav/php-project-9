@@ -3,15 +3,16 @@
 @section('title', 'Главная')
 
 @section('content')
-    @if ($errors->any())
-        <div>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    @include('flash::message')
+{{--    @if ($errors->any())--}}
+{{--        <div>--}}
+{{--            <ul>--}}
+{{--                @foreach ($errors->all() as $error)--}}
+{{--                    <li>{{ $error }}</li>--}}
+{{--                @endforeach--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    @endif--}}
     <div class="container-lg mt-3">
         <h1></h1>
         <div class="row">
