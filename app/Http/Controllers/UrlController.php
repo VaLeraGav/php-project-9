@@ -13,7 +13,6 @@ class UrlController extends Controller
     public function index()
     {
         $urls = DB::table('urls')->orderBy('id')->paginate(10);
-        // $newUrl = new Url();
         return view('urls.index', compact('urls'));
     }
 
