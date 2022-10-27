@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Url;
+//use App\Models\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
@@ -13,8 +13,8 @@ class UrlController extends Controller
     public function index()
     {
         $urls = DB::table('urls')->orderBy('id')->paginate(10);
-        $newUrl = new Url();
-        return view('urls.index', compact('urls','newUrl' ));
+        // $newUrl = new Url();
+        return view('urls.index', compact('urls' ));
     }
 
     /**
@@ -23,18 +23,24 @@ class UrlController extends Controller
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $this->validate($request, [
-            'url.name' => 'required|max:255|url',
+            'url.name' => 'url|required|max:255',
         ]);
-        $newUrl = new Url();
-        $newUrl->fill($request->all());
-        $newUrl->save();
 
+        // страница успешно добавлена
+        $newUrl = DB::table('urls')->insertGetId(
+            [
+                'name' => $request,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]
+        );
         return redirect()
-            ->route('index');
+            ->route('urls.index');
     }
 
-    function show()
+    function show($id)
     {
-        return view('urls.show');
+        $url = DB::table('urls')->find($id);
+        return view('urls.show', compact('url'));
     }
 }

@@ -1,30 +1,32 @@
 @extends('layouts.app')
 
+@section('title', 'Show')
+
 @section('content')
     <main class="flex-grow-1">
         <div class="container-lg">
-            <h1 class="mt-5 mb-3">Сайт: https://hexlet.io</h1>
+            <h1 class="mt-5 mb-3">Сайт: {{ $url->name }}</h1>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover text-nowrap">
                     <tbody>
                     <tr>
                         <td>ID</td>
-                        <td>1</td>
+                        <td>{{ $url->id }}</td>
                     </tr>
                     <tr>
                         <td>Имя</td>
-                        <td>https://hexlet.io</td>
+                        <td>{{ $url->name }}</td>
                     </tr>
                     <tr>
                         <td>Дата создания</td>
-                        <td>2022-08-28 08:00:48</td>
+                        <td>{{ $url->created_at }}</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <h2 class="mt-5 mb-3">Проверки</h2>
-            <form method="post" action="https://php-page-analyzer-ru.hexlet.app/urls/1/checks">
-                <input type="hidden" name="_token" value="vL69bSCoXYHQS5ecyYmTlhBVMqNUtfsqjElRLHKO">
+            <form method="post" action="{{ route('urls.index') }}">
+                <input type="hidden" name="_token" value="">
                 <input type="submit" class="btn btn-primary" value="Запустить проверку">
             </form>
             <table class="table table-bordered table-hover text-nowrap">

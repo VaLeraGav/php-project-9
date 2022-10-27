@@ -17,7 +17,9 @@
                 </tbody>
                 @foreach($urls as $url)
                     <tr>
-                        <td>{{$url->id}}</td>
+                        <td>
+                            <a href="{{route('urls.show', $url->id)}}">{{$url->name}}</a>
+                        </td>
                         <td>{{$url->name}}</td>
                     </tr>
                 @endforeach

@@ -3,6 +3,15 @@
 @section('title', 'Главная')
 
 @section('content')
+    @if ($errors->any())
+        <div>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container-lg mt-3">
         <h1></h1>
         <div class="row">
@@ -13,7 +22,7 @@
                 <form action="{{ route('urls.index') }}" method="POST"
                       class="d-flex justify-content-center">
                     @csrf
-                    <input type="text" name="url[name]" value="{{ old('url.name') }}"
+                    <input type="text" name="url[name]"
                            class="form-control form-control-lg"
                            placeholder="https://www.example.com">
                     <input type="submit" class="btn btn-primary btn-lg ms-3 px-5 text-uppercase mx-3"
@@ -22,13 +31,5 @@
             </div>
         </div>
     </div>
-    @if ($errors->any())
-        <div>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+
 @endsection

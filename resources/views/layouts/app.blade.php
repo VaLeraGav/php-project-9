@@ -12,6 +12,7 @@
 </head>
 <body class="min-vh-100 d-flex flex-column">
 <header class="flex-shrink-0">
+{{--    <nav class="navbar navbar-expand-md navbar-dark bg-dark px-3">--}}
     <nav class="navbar navbar-expand-md navbar-dark bg-dark px-3">
 {{--        <a class="navbar-brand" href="<?= $router->urlFor('root') ?>">Анализатор страниц</a>--}}
         <a class="navbar-brand" href="#">Анализатор страниц</a>
