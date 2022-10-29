@@ -16,7 +16,7 @@ class UrlController extends Controller
         return view('urls.index', compact('urls'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $validator = Validator::make($request->all(), [
             'url.name' => 'url|required|max:255',
@@ -26,6 +26,7 @@ class UrlController extends Controller
             flash('Некорректный URL')->error();
             return redirect()->route('welcome')->withErrors($validator);
         }
+
         $formData = $request->input('url');
         $urlData = parse_url($formData['name']);
         $normalizedUrl = strtolower("{$urlData['scheme']}://{$urlData['host']}");
@@ -33,15 +34,19 @@ class UrlController extends Controller
         $url = DB::table('urls')->where('name', $normalizedUrl)->first();
 
         if ($url) {
-            flash("Страница \"{$url->name}\" существует")->warning();
             $id = $url->id;
+
+            flash("Страница \"{$url->name}\" существует")->warning();
         } else {
+
             $id = DB::table('urls')->insertGetId(
                 [
                     'name' => $normalizedUrl,
                     'created_at' => Carbon::now('Europe/Moscow'),
+                    'updated_at' => Carbon::now('Europe/Moscow'),
                 ]
             );
+
             flash('Страница успешно добавлена')->success();
         }
         return redirect()->route('urls.show', $id);
@@ -50,6 +55,11 @@ class UrlController extends Controller
     function show($id)
     {
         $url = DB::table('urls')->find($id);
-        return view('urls.show', compact('url'));
+
+        $urlChecks = DB::table('url_checks')
+            ->where('url_id', $id)
+            ->get();
+
+        return view('urls.show', compact('url', 'urlChecks'));
     }
 }

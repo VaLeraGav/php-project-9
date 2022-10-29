@@ -21,12 +21,19 @@
                         <td>Дата создания</td>
                         <td>{{ $url->created_at }}</td>
                     </tr>
+                    <tr>
+                        <td>Дата обновления</td>
+                        <td>{{ $url->updated_at }}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
             <h2 class="mt-5 mb-3">Проверки</h2>
-            <form method="post" action="{{ route('urls.index') }}">
-                <input type="hidden" name="_token" value="">
+            <form method="post" action="{{ route('urls.checks.store', [$url->id]) }}">
+                {{-- @csrf --}}
+                {{ csrf_field() }}
+                {{--  <input type="hidden" name="_token" value=""> --}}
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <input type="submit" class="btn btn-primary" value="Запустить проверку">
             </form>
             <table class="table table-bordered table-hover text-nowrap">
@@ -39,6 +46,16 @@
                     <th>description</th>
                     <th>Дата создания</th>
                 </tr>
+                @foreach ($urlChecks as $urlCheck)
+                    <tr>
+                        <th>{{ $urlCheck->id }}</th>
+                        <th>{{ $urlCheck->status_code }}</th>
+                        <th>{{ $urlCheck->h1 }}</th>
+                        <th>{{  $urlCheck->title }}</th>
+                        <th>{{  $urlCheck->description }}</th>
+                        <th>{{  $urlCheck->created_at }}</th>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

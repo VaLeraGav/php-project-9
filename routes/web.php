@@ -15,4 +15,5 @@ Route::resource('urls', UrlController::class)->only([
     ]
 );
 
-// Route::post('urls/{id}/checks', UrlCheckController::class)->only('store');
+Route::post('/urls/{id}/checks', [UrlCheckController::class, 'store'])
+    ->name('urls.checks.store');
