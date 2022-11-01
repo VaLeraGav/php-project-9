@@ -6,24 +6,28 @@ use Carbon\Carbon;
 use GuzzleHttp\Exception\ConnectException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class UrlCheckController extends Controller
 {
     public function store(int $id): \Illuminate\Http\RedirectResponse
     {
-        $urlId = DB::table('urls')->find($id);
         try {
-//            $check = [
-//                'url_id' => $id,
-//                'status_code' => 200,
-//                'h1' => 'test-h1',
-//                'keywords' => 'test-keywords',
-//                'description' => 'test-description',
-//                'created_at' => $urlId->created_at,
-//                'updated_at' => Carbon::now()
-//            ];
-//
-//            DB::table('url_checks')->insert($check);
+            $url = DB::table('urls')->find($id);
+            abort_unless($url, 404);
+            $response = Http::get($url->name);
+
+            $check = [
+                'url_id' => $id,
+                'status_code' => $response->status(),
+                'h1' => 'test-h1',
+                'keywords' => 'test-keywords',
+                'description' => 'test-description',
+                'created_at' => Carbon::now('Europe/Moscow'),
+                'updated_at' => Carbon::now('Europe/Moscow')
+            ];
+
+            DB::table('url_checks')->insert($check);
 
             DB::table('urls')->where('id', $id)->update(
                 [

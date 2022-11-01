@@ -3,6 +3,9 @@
 @section('title', 'Сайты')
 
 @section('content')
+
+{{--    <pre>{{ print_r( $lastChecks) }}</pre>--}}
+
     <div class="container-lg mt-3">
         <h1>Сайты</h1>
         <div class="table-responsive">

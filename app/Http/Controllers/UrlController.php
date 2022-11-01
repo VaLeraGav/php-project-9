@@ -13,7 +13,14 @@ class UrlController extends Controller
     public function index()
     {
         $urls = DB::table('urls')->orderBy('id')->paginate(10);
-        return view('urls.index', compact('urls'));
+
+        // TODO: does not return
+        $lastChecks = DB::table('url_checks')
+            ->orderBy('url_id')
+            ->latest()->get();
+
+
+        return view('urls.index', compact('urls', 'lastChecks'));
     }
 
     public function store(Request $request): \Illuminate\Http\RedirectResponse
@@ -38,7 +45,6 @@ class UrlController extends Controller
 
             flash("Страница \"{$url->name}\" существует")->warning();
         } else {
-
             $id = DB::table('urls')->insertGetId(
                 [
                     'name' => $normalizedUrl,

@@ -46,12 +46,12 @@
                 </tr>
                 @foreach ($urlChecks as $urlCheck)
                     <tr>
-                        <th>{{ $urlCheck->id }}</th>
-                        <th>{{ $urlCheck->status_code }}</th>
-                        <th>{{ $urlCheck->h1 }}</th>
-                        <th>{{  $urlCheck->title }}</th>
-                        <th>{{  $urlCheck->description }}</th>
-                        <th>{{  $urlCheck->created_at }}</th>
+                        <td>{{ $urlCheck->id }}</td>
+                        <td>{{ $urlCheck->status_code }}</td>
+                        <td>{{ $urlCheck->h1 }}</td>
+                        <td>{{ $urlCheck->keywords }}</td>
+                        <td>{{ $urlCheck->description }}</td>
+                        <td>{{ $urlCheck->created_at }}</td>
                     </tr>
                 @endforeach
                 </tbody>
