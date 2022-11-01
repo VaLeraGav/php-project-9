@@ -49,9 +49,9 @@
                         <tr>
                             <td>{{ $urlCheck->id }}</td>
                             <td>{{ $urlCheck->status_code }}</td>
-                            <td>{{ Str::limit($urlCheck->h1, 30) }}</td>
-                            <td>{{ Str::limit($urlCheck->title, 30) }}</td>
-                            <td>{{ Str::limit($urlCheck->description, 30) }}</td>
+                            <td class="text-wrap">{{ $urlCheck->h1 }}</td>
+                            <td class="text-wrap">{{ Str::limit($urlCheck->title, 100) }}</td>
+                            <td class="text-wrap">{{ Str::limit($urlCheck->description, 100) }}</td>
                             <td>{{ $urlCheck->created_at }}</td>
                         </tr>
                     @endforeach

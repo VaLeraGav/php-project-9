@@ -43,9 +43,12 @@ class UrlCheckController extends Controller
                 ]
             );
 
-            flash('Сайт проанализирован!')->warning();
+            flash('Сайт проанализирован')->warning();
+
         } catch (\Exception $e) {
+
             flash('Произошла ошибка при проверке')->error();
+
         }
         return redirect()->route('urls.show', $id);
     }
