@@ -3,9 +3,6 @@
 @section('title', 'Сайты')
 
 @section('content')
-
-{{--    <pre>{{ print_r( $lastChecks) }}</pre>--}}
-
     <div class="container-lg mt-3">
         <h1>Сайты</h1>
         <div class="table-responsive">
@@ -18,17 +15,20 @@
                     <th>Код ответа</th>
                 </tr>
                 </tbody>
-                @foreach($urls as $url)
-                    <tr>
-                        <td>{{ $url->id }}</td>
-                        <td>
-                            <a href="{{ route('urls.show', $url->id )}}">{{ $url->name }}</a>
-                        </td>
-                        <td>{{ $lastChecks[$url->id]->updated_at  ?? ''}}</td>
-                        <td>{{ $lastChecks[$url->id]->status_code ?? '' }}</td>
-                    </tr>
-                @endforeach
+                @if ($urls)
+                    @foreach($urls as $url)
+                        <tr>
+                            <td>{{ $url->id }}</td>
+                            <td>
+                                <a href="{{ route('urls.show', $url->id )}}">{{ $url->name }}</a>
+                            </td>
+                            <td>{{ $lastChecks[$url->id]->updated_at  ?? ''}}</td>
+                            <td>{{ $lastChecks[$url->id]->status_code ?? '' }}</td>
+                        </tr>
+                    @endforeach
+                @endif
             </table>
+            {{ $urls->links('pagination::bootstrap-4') }}
         </div>
     </div>
 @endsection

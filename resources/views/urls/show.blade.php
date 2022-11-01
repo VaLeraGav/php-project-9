@@ -5,7 +5,7 @@
 @section('content')
     <main class="flex-grow-1">
         <div class="container-lg">
-            <h1 class="mt-5 mb-3">Сайт: {{ $url->name }}</h1>
+            <h1 class="mt-3 mb-3">Сайт: {{ $url->name }}</h1>
             <div class="table-responsive">
                 <table class="table table-bordered table-hover text-nowrap">
                     <tbody>
@@ -28,10 +28,10 @@
                     </tbody>
                 </table>
             </div>
-            <h2 class="mt-5 mb-3">Проверки</h2>
+            <h2 class="mt-3 mb-3">Проверки</h2>
             <form method="post" action="{{ route('urls.checks.store', $url->id) }}">
                 @csrf
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                 <input type="submit" class="btn btn-primary" value="Запустить проверку">
             </form>
             <table class="table table-bordered table-hover text-nowrap">
@@ -44,19 +44,23 @@
                     <th>description</th>
                     <th>Дата создания</th>
                 </tr>
-                @foreach ($urlChecks as $urlCheck)
-                    <tr>
-                        <td>{{ $urlCheck->id }}</td>
-                        <td>{{ $urlCheck->status_code }}</td>
-                        <td>{{ Str::limit($urlCheck->h1, 30) }}</td>
-                        <td>{{ Str::limit($urlCheck->title, 30) }}</td>
-                        <td>{{ Str::limit($urlCheck->description, 30) }}</td>
-                        <td>{{ $urlCheck->created_at }}</td>
-                    </tr>
-                @endforeach
+                @if ($urlChecks)
+                    @foreach ($urlChecks as $urlCheck)
+                        <tr>
+                            <td>{{ $urlCheck->id }}</td>
+                            <td>{{ $urlCheck->status_code }}</td>
+                            <td>{{ Str::limit($urlCheck->h1, 30) }}</td>
+                            <td>{{ Str::limit($urlCheck->title, 30) }}</td>
+                            <td>{{ Str::limit($urlCheck->description, 30) }}</td>
+                            <td>{{ $urlCheck->created_at }}</td>
+                        </tr>
+                    @endforeach
+                @endif
                 </tbody>
             </table>
+            {{ $urlChecks->links('pagination::bootstrap-4') }}
         </div>
+
     </main>
 
 @endsection
