@@ -14,11 +14,12 @@ class UrlController extends Controller
     {
         $urls = DB::table('urls')->orderBy('id')->paginate(10);
 
-        // TODO: does not return
         $lastChecks = DB::table('url_checks')
+            ->latest()
+            ->distinct('url_id')
             ->orderBy('url_id')
-            ->latest()->get();
-
+            ->get()
+            ->keyBy('url_id');
 
         return view('urls.index', compact('urls', 'lastChecks'));
     }
@@ -61,9 +62,11 @@ class UrlController extends Controller
     function show($id)
     {
         $url = DB::table('urls')->find($id);
+        abort_unless($url, 404);
 
         $urlChecks = DB::table('url_checks')
             ->where('url_id', $id)
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('urls.show', compact('url', 'urlChecks'));

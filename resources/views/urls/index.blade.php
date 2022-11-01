@@ -20,11 +20,12 @@
                 </tbody>
                 @foreach($urls as $url)
                     <tr>
+                        <td>{{ $url->id }}</td>
                         <td>
                             <a href="{{ route('urls.show', $url->id )}}">{{ $url->name }}</a>
                         </td>
-                        <td>{{ $url->name }}</td>
-                        <td>{{ $url->updated_at }}</td>
+                        <td>{{ $lastChecks[$url->id]->updated_at  ?? ''}}</td>
+                        <td>{{ $lastChecks[$url->id]->status_code ?? '' }}</td>
                     </tr>
                 @endforeach
             </table>

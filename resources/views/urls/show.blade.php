@@ -29,7 +29,7 @@
                 </table>
             </div>
             <h2 class="mt-5 mb-3">Проверки</h2>
-            <form method="post" action="{{ route('urls.checks.store', [$url->id]) }}">
+            <form method="post" action="{{ route('urls.checks.store', $url->id) }}">
                 @csrf
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <input type="submit" class="btn btn-primary" value="Запустить проверку">
@@ -48,9 +48,9 @@
                     <tr>
                         <td>{{ $urlCheck->id }}</td>
                         <td>{{ $urlCheck->status_code }}</td>
-                        <td>{{ $urlCheck->h1 }}</td>
-                        <td>{{ $urlCheck->title }}</td>
-                        <td>{{ $urlCheck->description }}</td>
+                        <td>{{ Str::limit($urlCheck->h1, 30) }}</td>
+                        <td>{{ Str::limit($urlCheck->title, 30) }}</td>
+                        <td>{{ Str::limit($urlCheck->description, 30) }}</td>
                         <td>{{ $urlCheck->created_at }}</td>
                     </tr>
                 @endforeach
