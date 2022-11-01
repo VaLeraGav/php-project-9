@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use DiDom\Document;
 use GuzzleHttp\Exception\ConnectException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,12 +18,17 @@ class UrlCheckController extends Controller
             abort_unless($url, 404);
             $response = Http::get($url->name);
 
+            $document = new Document($response->body());
+            $h1 = optional($document->first('h1'))->text();
+            $title = optional($document->first('title'))->text();
+            $description = optional($document->first('meta[name=description]'))->getAttribute('content');
+
             $check = [
                 'url_id' => $id,
                 'status_code' => $response->status(),
-                'h1' => 'test-h1',
-                'keywords' => 'test-keywords',
-                'description' => 'test-description',
+                'h1' => $h1,
+                'title' => $title,
+                'description' => $description,
                 'created_at' => Carbon::now('Europe/Moscow'),
                 'updated_at' => Carbon::now('Europe/Moscow')
             ];

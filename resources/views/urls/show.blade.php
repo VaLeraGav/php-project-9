@@ -49,7 +49,7 @@
                         <td>{{ $urlCheck->id }}</td>
                         <td>{{ $urlCheck->status_code }}</td>
                         <td>{{ $urlCheck->h1 }}</td>
-                        <td>{{ $urlCheck->keywords }}</td>
+                        <td>{{ $urlCheck->title }}</td>
                         <td>{{ $urlCheck->description }}</td>
                         <td>{{ $urlCheck->created_at }}</td>
                     </tr>
