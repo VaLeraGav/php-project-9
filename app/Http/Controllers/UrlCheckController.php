@@ -14,7 +14,9 @@ class UrlCheckController extends Controller
     public function store(int $id): \Illuminate\Http\RedirectResponse
     {
         try {
+
             $url = DB::table('urls')->find($id);
+
             abort_unless($url, 404);
             $response = Http::get($url->name);
 
@@ -42,10 +44,9 @@ class UrlCheckController extends Controller
             );
 
             flash('Сайт проанализирован!')->warning();
-        } catch (ConnectException $e) {
-            flash("Error: {$e->getMessage()}")->error();
+        } catch (\Exception $e) {
+            flash('Произошла ошибка при проверке')->error();
         }
-
         return redirect()->route('urls.show', $id);
     }
 
