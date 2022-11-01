@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use DiDom\Document;
-use GuzzleHttp\Exception\ConnectException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
@@ -52,5 +50,4 @@ class UrlCheckController extends Controller
         }
         return redirect()->route('urls.show', $id);
     }
-
 }

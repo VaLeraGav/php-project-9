@@ -41,11 +41,11 @@ class UrlController extends Controller
 
         $url = DB::table('urls')->where('name', $normalizedUrl)->first();
 
-        if ($url) {
+        if (!is_null($url)) {
             $id = $url->id;
             flash("Страница \"{$url->name}\" существует")->warning();
-
         } else {
+
             $id = DB::table('urls')->insertGetId(
                 [
                     'name' => $normalizedUrl,

@@ -40,3 +40,10 @@ watch:
 
 dev:
 	npm run dev
+
+#не работают
+lint:
+	composer phpcs
+
+lint-fix:
+	composer exec phpcs
