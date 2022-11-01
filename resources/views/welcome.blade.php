@@ -1,21 +1,27 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-    <title>Laravel</title>
+@section('title', 'Главная')
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+@section('content')
 
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-    </style>
-</head>
-<body class="antialiased">
-<h3>Welcome!</h3>
-</body>
-</html>
+    <div class="container-lg mt-3">
+        <h1></h1>
+        <div class="row">
+            <div class="col-12 col-md-10 col-lg-8 mx-auto border rounded-3 bg-light p-5">
+                <h1 class="display-3">Анализатор страниц</h1>
+                <p class="lead">Бесплатно проверяйте сайты на SEO пригодность</p>
+
+                <form action="{{ route('urls.index') }}" method="POST"
+                      class="d-flex justify-content-center">
+                    @csrf
+                    <input type="text" name="url[name]"
+                           class="form-control form-control-lg"
+                           placeholder="https://www.example.com">
+                    <input type="submit" class="btn btn-primary btn-lg ms-3 px-5 text-uppercase mx-3"
+                           value="Проверить">
+                </form>
+            </div>
+        </div>
+    </div>
+
+@endsection
