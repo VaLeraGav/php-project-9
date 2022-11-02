@@ -3,14 +3,11 @@ start:
 
 setup:
 	composer install
-	cp -n .env.example .env
+	cp -n .env.example .env || true
 	php artisan key:gen --ansi
 	touch database/database.sqlite
 	php artisan migrate
 	php artisan db:seed
-	npm ci
-	npm run build
-	make ide-helper
 
 test:
 	php artisan test
