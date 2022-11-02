@@ -5323,6 +5323,11 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
  */
 
 __webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
+/*!
+  * Bootstrap v5.0.2 (https://getbootstrap.com/)
+  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  */
 
 /***/ }),
 
