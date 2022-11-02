@@ -1,9 +1,5 @@
 start:
 	php artisan serve
-	# http://127.0.0.1:8000/
-
-start-deploy:
-    php -S 0.0.0.0:${PORT:-8000} -t public
 
 setup:
 	composer install
