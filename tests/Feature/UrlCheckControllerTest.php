@@ -9,7 +9,6 @@ use Carbon\Carbon;
 
 class UrlCheckControllerTest extends TestCase
 {
-
     function testStore(): void
     {
         $data = [
