@@ -1493,7 +1493,7 @@ function arrow(_ref) {
   var startDiff = popperOffsets[axis] - state.rects.reference[axis];
   var arrowOffsetParent = (0,_dom_utils_getOffsetParent_js__WEBPACK_IMPORTED_MODULE_6__["default"])(arrowElement);
   var clientSize = arrowOffsetParent ? axis === 'y' ? arrowOffsetParent.clientHeight || 0 : arrowOffsetParent.clientWidth || 0 : 0;
-  var centerToReference = endDiff / 2 - startDiff / 2; // Make sure the arrow doesn't overflow the popper if the center point is
+  var centerToReference = endDiff / 2 - startDiff / 2; // Procfile sure the arrow doesn't overflow the popper if the center point is
   // outside of the popper bounds
 
   var min = paddingObject[minProp];
@@ -28254,7 +28254,7 @@ function printWarning(level, format, args) {
 
 if (!React) {
   {
-    throw Error( "ReactDOM was loaded before React. Make sure you load the React package before loading ReactDOM." );
+    throw Error( "ReactDOM was loaded before React. Procfile sure you load the React package before loading ReactDOM." );
   }
 }
 
@@ -37223,7 +37223,7 @@ function setInitialProperties(domElement, tag, rawProps, rootContainerElement) {
 
   {
     validatePropertiesInDevelopment(tag, rawProps);
-  } // TODO: Make sure that we check isMounted before firing any of these events.
+  } // TODO: Procfile sure that we check isMounted before firing any of these events.
 
 
   var props;
@@ -37320,14 +37320,14 @@ function setInitialProperties(domElement, tag, rawProps, rootContainerElement) {
 
   switch (tag) {
     case 'input':
-      // TODO: Make sure we check if this is still unmounted or do any clean
+      // TODO: Procfile sure we check if this is still unmounted or do any clean
       // up necessary since we never stop tracking anymore.
       track(domElement);
       postMountWrapper(domElement, rawProps, false);
       break;
 
     case 'textarea':
-      // TODO: Make sure we check if this is still unmounted or do any clean
+      // TODO: Procfile sure we check if this is still unmounted or do any clean
       // up necessary since we never stop tracking anymore.
       track(domElement);
       postMountWrapper$3(domElement);
@@ -37592,7 +37592,7 @@ function diffHydratedProperties(domElement, tag, rawProps, parentNamespace, root
     suppressHydrationWarning = rawProps[SUPPRESS_HYDRATION_WARNING] === true;
     isCustomComponentTag = isCustomComponent(tag, rawProps);
     validatePropertiesInDevelopment(tag, rawProps);
-  } // TODO: Make sure that we check isMounted before firing any of these events.
+  } // TODO: Procfile sure that we check isMounted before firing any of these events.
 
 
   switch (tag) {
@@ -37842,14 +37842,14 @@ function diffHydratedProperties(domElement, tag, rawProps, parentNamespace, root
 
   switch (tag) {
     case 'input':
-      // TODO: Make sure we check if this is still unmounted or do any clean
+      // TODO: Procfile sure we check if this is still unmounted or do any clean
       // up necessary since we never stop tracking anymore.
       track(domElement);
       postMountWrapper(domElement, rawProps, true);
       break;
 
     case 'textarea':
-      // TODO: Make sure we check if this is still unmounted or do any clean
+      // TODO: Procfile sure we check if this is still unmounted or do any clean
       // up necessary since we never stop tracking anymore.
       track(domElement);
       postMountWrapper$3(domElement);
@@ -38249,7 +38249,7 @@ var updatedAncestorInfo = function () {};
         tagDisplayName = 'Text nodes';
       } else {
         tagDisplayName = 'Whitespace text nodes';
-        whitespaceInfo = " Make sure you don't have any extra whitespace between tags on " + 'each line of your source code.';
+        whitespaceInfo = " Procfile sure you don't have any extra whitespace between tags on " + 'each line of your source code.';
       }
     } else {
       tagDisplayName = '<' + childTag + '>';
@@ -40710,7 +40710,7 @@ function checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, ol
 
     {
       if (shouldUpdate === undefined) {
-        error('%s.shouldComponentUpdate(): Returned undefined instead of a ' + 'boolean value. Make sure to return true or false.', getComponentName(ctor) || 'Component');
+        error('%s.shouldComponentUpdate(): Returned undefined instead of a ' + 'boolean value. Procfile sure to return true or false.', getComponentName(ctor) || 'Component');
       }
     }
 
@@ -42760,7 +42760,7 @@ function tryToClaimNextHydratableInstance(fiber) {
   var nextInstance = nextHydratableInstance;
 
   if (!nextInstance) {
-    // Nothing to hydrate. Make it an insertion.
+    // Nothing to hydrate. Procfile it an insertion.
     insertNonHydratedInstance(hydrationParentFiber, fiber);
     isHydrating = false;
     hydrationParentFiber = fiber;
@@ -42776,7 +42776,7 @@ function tryToClaimNextHydratableInstance(fiber) {
     nextInstance = getNextHydratableSibling(firstAttemptedInstance);
 
     if (!nextInstance || !tryHydrate(fiber, nextInstance)) {
-      // Nothing to hydrate. Make it an insertion.
+      // Nothing to hydrate. Procfile it an insertion.
       insertNonHydratedInstance(hydrationParentFiber, fiber);
       isHydrating = false;
       hydrationParentFiber = fiber;
@@ -46432,7 +46432,7 @@ function updateSuspenseFallbackChildren(current, workInProgress, primaryChildren
 
   if ( // In legacy mode, we commit the primary tree as if it successfully
   // completed, even though it's in an inconsistent state.
-  (mode & BlockingMode) === NoMode && // Make sure we're on the second pass, i.e. the primary child fragment was
+  (mode & BlockingMode) === NoMode && // Procfile sure we're on the second pass, i.e. the primary child fragment was
   // already cloned. In legacy mode, the only case where this isn't true is
   // when DevTools forces us to display a fallback; we skip the first render
   // pass entirely and go straight to rendering the fallback. (In Concurrent
@@ -47649,7 +47649,7 @@ function completeWork(current, workInProgress, renderLanes) {
             appendAllChildren(instance, workInProgress, false, false);
             workInProgress.stateNode = instance; // Certain renderers require commit-time effects for initial mount.
             // (eg DOM renderer supports auto-focus for certain elements).
-            // Make sure such renderers get scheduled for later work.
+            // Procfile sure such renderers get scheduled for later work.
 
             if (finalizeInitialChildren(instance, type, newProps, rootContainerInstance)) {
               markUpdate(workInProgress);
@@ -50038,7 +50038,7 @@ function scheduleUpdateOnFiber(fiber, lane, eventTime) {
       // definitely won't finish. Since we have a new update, let's mark it as
       // suspended now, right before marking the incoming update. This has the
       // effect of interrupting the current render and switching to the update.
-      // TODO: Make sure this doesn't override pings that happen while we've
+      // TODO: Procfile sure this doesn't override pings that happen while we've
       // already started rendering.
       markRootSuspended$1(root, workInProgressRootRenderLanes);
     }
@@ -54002,7 +54002,7 @@ function injectIntoDevTools(devToolsConfig) {
     scheduleRoot:  scheduleRoot ,
     setRefreshHandler:  setRefreshHandler ,
     // Enables DevTools to append owner stacks to error messages in DEV mode.
-    getCurrentFiber:  getCurrentFiberForDevTools 
+    getCurrentFiber:  getCurrentFiberForDevTools
   });
 }
 
@@ -54359,7 +54359,7 @@ var didWarnAboutUnstableCreatePortal = false;
   if (typeof Map !== 'function' || // $FlowIssue Flow incorrectly thinks Map has no prototype
   Map.prototype == null || typeof Map.prototype.forEach !== 'function' || typeof Set !== 'function' || // $FlowIssue Flow incorrectly thinks Set has no prototype
   Set.prototype == null || typeof Set.prototype.clear !== 'function' || typeof Set.prototype.forEach !== 'function') {
-    error('React depends on Map and Set built-in types. Make sure that you load a ' + 'polyfill in older browsers. https://reactjs.org/link/react-polyfills');
+    error('React depends on Map and Set built-in types. Procfile sure that you load a ' + 'polyfill in older browsers. https://reactjs.org/link/react-polyfills');
   }
 }
 
@@ -58561,12 +58561,12 @@ typeof MessageChannel !== 'function') {
 
     if (typeof requestAnimationFrame !== 'function') {
       // Using console['error'] to evade Babel and ESLint
-      console['error']("This browser doesn't support requestAnimationFrame. " + 'Make sure that you load a ' + 'polyfill in older browsers. https://reactjs.org/link/react-polyfills');
+      console['error']("This browser doesn't support requestAnimationFrame. " + 'Procfile sure that you load a ' + 'polyfill in older browsers. https://reactjs.org/link/react-polyfills');
     }
 
     if (typeof cancelAnimationFrame !== 'function') {
       // Using console['error'] to evade Babel and ESLint
-      console['error']("This browser doesn't support cancelAnimationFrame. " + 'Make sure that you load a ' + 'polyfill in older browsers. https://reactjs.org/link/react-polyfills');
+      console['error']("This browser doesn't support cancelAnimationFrame. " + 'Procfile sure that you load a ' + 'polyfill in older browsers. https://reactjs.org/link/react-polyfills');
     }
   }
 
@@ -58578,7 +58578,7 @@ typeof MessageChannel !== 'function') {
   // need to be frame aligned; for those that do, use requestAnimationFrame.
 
   var yieldInterval = 5;
-  var deadline = 0; // TODO: Make this configurable
+  var deadline = 0; // TODO: Procfile this configurable
 
   {
     // `isInputPending` is not available. Since we have no way of knowing if
@@ -59157,7 +59157,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -59171,20 +59171,20 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	(() => {
@@ -59217,7 +59217,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return result;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -59229,7 +59229,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -59241,12 +59241,12 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -59257,7 +59257,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -59266,11 +59266,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
-/******/ 		
+/******/
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
@@ -59278,19 +59278,19 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0
 /******/ 		};
-/******/ 		
+/******/
 /******/ 		// no chunk on demand loading
-/******/ 		
+/******/
 /******/ 		// no prefetching
-/******/ 		
+/******/
 /******/ 		// no preloaded
-/******/ 		
+/******/
 /******/ 		// no HMR
-/******/ 		
+/******/
 /******/ 		// no HMR manifest
-/******/ 		
+/******/
 /******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
+/******/
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
 /******/ 			var [chunkIds, moreModules, runtime] = data;
@@ -59315,20 +59315,20 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
-/******/ 		
+/******/
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
-/******/ 	
+/******/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+/******/
 /******/ })()
 ;
