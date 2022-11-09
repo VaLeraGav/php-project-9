@@ -8,6 +8,7 @@ setup:
 	touch database/database.sqlite
 	php artisan migrate
 	php artisan db:seed
+	npm install
 
 test:
 	php artisan test
@@ -34,7 +35,6 @@ watch:
 dev:
 	npm run dev
 
-#не работают
 lint:
 	composer phpcs
 
