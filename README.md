@@ -28,3 +28,4 @@ $ make setup
 
 finished project: [hexlet-components/php-laravel-blog](https://github.com/hexlet-components/php-laravel-blog)
 
+https://php-project-3.herokuapp.com/
