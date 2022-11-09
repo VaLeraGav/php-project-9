@@ -10,6 +10,9 @@ setup:
 	php artisan db:seed
 	npm install
 
+heroku:
+	git push heroku main
+
 test:
 	php artisan test
 
