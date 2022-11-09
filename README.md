@@ -5,27 +5,30 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/3151b9a84aca358cca2c/maintainability)](https://codeclimate.com/github/VaLeraGav/php-project-lvl3/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3151b9a84aca358cca2c/test_coverage)](https://codeclimate.com/github/VaLeraGav/php-project-lvl3/test_coverage)
 
-Третий проект из четырёх, в рамках профессии PHP-программист на [Хекслет](https://ru.hexlet.io/professions/php).
+The third project of four, within the framework of the profession of a PHP programmer on Laravel [Hexlet](https://ru.hexlet.io/professions/php).
 
-## Описание проекта
+## Project Description
 
-Необходимо реализовать веб-сайт на базе фреймворка Laravel.
+It is necessary to implement a website based on the Laravel framework.
+Page Analyzer is a web application that performs queries over the network and stores data in a database.
 
-## Требование, установка и запуск
+## Requirements
 
 * PHP ^7.4 || ^8.1
 * Extensions: mbstring, curl, dom, xml,zip, sqlite3
-* Composer
+* Composer 2
 * Node.js & npm
 * SQLite for local
+
+## Setup
 
 ```
 $ sudo apt install php
 $ git clone https://github.com/VaLeraGav/php-project-lvl2.git
-$ cd php-project-lvl2
+$ cd php-project-lvl3
 $ make setup
 ```
 
-finished project: [hexlet-components/php-laravel-blog](https://github.com/hexlet-components/php-laravel-blog)
 
-https://php-project-3.herokuapp.com/
+
+Demonstration: https://php-project-3.herokuapp.com/
