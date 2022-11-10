@@ -24,11 +24,9 @@ Page Analyzer is a web application that performs queries over the network and st
 
 ```
 $ sudo apt install php
-$ git clone https://github.com/VaLeraGav/php-project-lvl2.git
+$ git clone https://github.com/VaLeraGav/php-project-9.git
 $ cd php-project-lvl3
 $ make setup
 ```
-
-
 
 Demonstration: https://php-project-3.herokuapp.com/
