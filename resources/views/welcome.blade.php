@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Главная')
+@section('title', 'Анализатор страниц')
 
 @section('content')
     <div class="container-lg mt-3">
