@@ -3,7 +3,6 @@
 @section('title', 'Главная')
 
 @section('content')
-
     <div class="container-lg mt-3">
         <h1></h1>
         <div class="row">
@@ -23,5 +22,4 @@
             </div>
         </div>
     </div>
-
 @endsection
