@@ -45,12 +45,11 @@ class UrlController extends Controller
             $id = $url->id;
             flash("Страница \"{$url->name}\" существует")->warning();
         } else {
-
             $id = DB::table('urls')->insertGetId(
                 [
                     'name' => $normalizedUrl,
                     'created_at' => Carbon::now('Europe/Moscow'),
-                    'updated_at' => Carbon::now('Europe/Moscow'),
+                    // 'updated_at' => Carbon::now('Europe/Moscow'),
                 ]
             );
 
@@ -66,7 +65,7 @@ class UrlController extends Controller
 
         $urlChecks = DB::table('url_checks')
             ->where('url_id', $id)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('updated_at', 'desc')
             ->paginate(5);
 
         return view('urls.show', compact('url', 'urlChecks'));

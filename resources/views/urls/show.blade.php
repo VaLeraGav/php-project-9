@@ -52,7 +52,7 @@
                             <td class="text-wrap">{{ $urlCheck->h1 }}</td>
                             <td class="text-wrap">{{ Str::limit($urlCheck->title, 100) }}</td>
                             <td class="text-wrap">{{ Str::limit($urlCheck->description, 100) }}</td>
-                            <td>{{ $urlCheck->created_at }}</td>
+                            <td>{{ $urlCheck->updated_at }}</td>
                         </tr>
                     @endforeach
                 @endif

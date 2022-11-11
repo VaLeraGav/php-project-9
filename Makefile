@@ -10,6 +10,12 @@ setup:
 	php artisan db:seed
 	npm install
 
+update db:
+	rm database/database.sqlite
+	touch database/database.sqlite
+	php artisan migrate
+	php artisan db:seed
+
 heroku:
 	git push heroku main
 

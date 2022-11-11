@@ -20,8 +20,7 @@ class CreateUrlChecksTable extends Migration
             $table->string('h1')->nullable();
             $table->string('title')->nullable();
             $table->string('description')->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->timestamps();
         });
     }
 

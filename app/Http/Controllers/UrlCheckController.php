@@ -29,7 +29,7 @@ class UrlCheckController extends Controller
                 'h1' => $h1,
                 'title' => $title,
                 'description' => $description,
-                'created_at' => Carbon::now('Europe/Moscow'),
+                'created_at' => $url->created_at,
                 'updated_at' => Carbon::now('Europe/Moscow')
             ];
 
