@@ -15,18 +15,14 @@
                     <th>Код ответа</th>
                 </tr>
                 </tbody>
-                @if ($urls)
-                    @foreach ($urls as $url)
-                        <tr>
-                            <td>{{ $url->id }}</td>
-                            <td>
-                                <a href="{{ route('urls.show', $url->id )}}">{{ $url->name }}</a>
-                            </td>
-                            <td>{{ $lastChecks[$url->id]->created_at ?? null }}</td>
-                            <td>{{ $lastChecks[$url->id]->status_code ?? null }}</td>
-                        </tr>
-                    @endforeach
-                @endif
+                @foreach($urls as $url)
+                    <tr>
+                        <td>{{ $url->id }}</td>
+                        <td><a href="{{ route('urls.show', $url->id) }}">{{ $url->name }}</a></td>
+                        <td>{{ $lastChecks[$url->id]->created_at ?? '' }}</td>
+                        <td>{{ $lastChecks[$url->id]->status_code ?? '' }}</td>
+                    </tr>
+                @endforeach
             </table>
             {{ $urls->links('pagination::bootstrap-4') }}
         </div>
