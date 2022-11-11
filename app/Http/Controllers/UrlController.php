@@ -48,7 +48,6 @@ class UrlController extends Controller
                 [
                     'name' => $normalizedUrl,
                     'created_at' => Carbon::now('Europe/Moscow'),
-                    // 'updated_at' => Carbon::now('Europe/Moscow'),
                 ]
             );
 

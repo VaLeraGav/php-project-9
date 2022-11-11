@@ -30,18 +30,11 @@ class UrlCheckController extends Controller
                 'title' => $title,
                 'description' => $description,
                 'created_at' => Carbon::now('Europe/Moscow'),
-                //'updated_at' => Carbon::now('Europe/Moscow')
             ];
 
             DB::table('url_checks')->insert($check);
 
-//            DB::table('urls')->where('id', $id)->update(
-//                [
-//                    'updated_at' => Carbon::now('Europe/Moscow')
-//                ]
-//            );
-
-            flash('Сайт проанализирован')->warning();
+            flash('Страница успешно проверена')->warning();
 
         } catch (\Exception $e) {
 

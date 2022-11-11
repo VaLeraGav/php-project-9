@@ -19,7 +19,6 @@ class CreateUrlsTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->timestamp('created_at')->nullable();
-//            $table->timestamp('updated_at')->nullable();
         });
     }
 
