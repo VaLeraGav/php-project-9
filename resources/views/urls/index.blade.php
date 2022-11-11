@@ -6,7 +6,7 @@
     <div class="container-lg mt-3">
         <h1>Сайты</h1>
         <div class="table-responsive">
-            <table class="table table-bordered table-hover text-nowrap" data-test="checks">
+            <table class="table table-bordered table-hover text-nowrap">
                 <thead>
                 <tr>
                     <th>ID</th>
