@@ -40,7 +40,6 @@
                         <th>description</th>
                         <th>Дата создания</th>
                     </tr>
-                    @if ($urlChecks)
                         @foreach ($urlChecks as $urlCheck)
                             <tr>
                                 <td>{{ $urlCheck->id }}</td>
@@ -51,7 +50,6 @@
                                 <td>{{ $urlCheck->created_at }}</td>
                             </tr>
                         @endforeach
-                    @endif
                 </tbody>
             </table>
             {{ $urlChecks->links('pagination::bootstrap-4') }}
