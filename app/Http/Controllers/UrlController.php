@@ -16,7 +16,6 @@ class UrlController extends Controller
 
         $lastChecks = DB::table('url_checks')
             ->orderBy('url_id')
-            ->latest()
             ->distinct('url_id')
             ->get()
             ->keyBy('url_id');
@@ -61,11 +60,12 @@ class UrlController extends Controller
     function show($id)
     {
         $url = DB::table('urls')->find($id);
+
         abort_unless($url, 404);
 
         $urlChecks = DB::table('url_checks')
             ->where('url_id', $id)
-            ->orderBy('updated_at', 'desc')
+            ->orderBy('created_at', 'desc')
             ->paginate(5);
 
         return view('urls.show', compact('url', 'urlChecks'));

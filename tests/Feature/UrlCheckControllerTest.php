@@ -14,7 +14,7 @@ class UrlCheckControllerTest extends TestCase
         $data = [
             'name' => 'https://google.com',
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            //'updated_at' => Carbon::now()
         ];
         $id = DB::table('urls')->insertGetId($data);
 

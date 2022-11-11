@@ -29,17 +29,17 @@ class UrlCheckController extends Controller
                 'h1' => $h1,
                 'title' => $title,
                 'description' => $description,
-                'created_at' => $url->created_at,
-                'updated_at' => Carbon::now('Europe/Moscow')
+                'created_at' => Carbon::now('Europe/Moscow'),
+                //'updated_at' => Carbon::now('Europe/Moscow')
             ];
 
             DB::table('url_checks')->insert($check);
 
-            DB::table('urls')->where('id', $id)->update(
-                [
-                    'updated_at' => Carbon::now('Europe/Moscow')
-                ]
-            );
+//            DB::table('urls')->where('id', $id)->update(
+//                [
+//                    'updated_at' => Carbon::now('Europe/Moscow')
+//                ]
+//            );
 
             flash('Сайт проанализирован')->warning();
 
