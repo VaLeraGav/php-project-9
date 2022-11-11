@@ -21,10 +21,7 @@
                         <td>Дата создания</td>
                         <td>{{ $url->created_at }}</td>
                     </tr>
-                    <tr>
-                        <td>Дата обновления</td>
-                        <td>{{ $url->updated_at }}</td>
-                    </tr>
+
                     </tbody>
                 </table>
             </div>
