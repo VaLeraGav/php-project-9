@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 class UrlCheckControllerTest extends TestCase
 {
-    function testStore(): void
+    public function testStore(): void
     {
         $data = [
             'name' => 'https://google.com',
@@ -40,5 +40,4 @@ class UrlCheckControllerTest extends TestCase
         ];
         $this->assertDatabaseHas('url_checks', $expected);
     }
-
 }

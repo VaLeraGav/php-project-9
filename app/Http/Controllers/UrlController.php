@@ -58,7 +58,7 @@ class UrlController extends Controller
         // return redirect()->route('urls.show', ['url' => $id]);
     }
 
-    function show($id)
+    public function show($id)
     {
         $url = DB::table('urls')->find($id);
 

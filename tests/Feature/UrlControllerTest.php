@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Feature;
 
 use Tests\TestCase;
@@ -9,7 +8,6 @@ use Carbon\Carbon;
 
 class UrlControllerTest extends TestCase
 {
-
     private int $id;
 
     public function setUp(): void
@@ -48,5 +46,4 @@ class UrlControllerTest extends TestCase
         $response->assertRedirect()->assertStatus(302);
         $this->assertDatabaseHas('urls', $data['url']);
     }
-
 }

@@ -45,7 +45,7 @@ dev:
 	npm run dev
 
 lint:
-	composer phpcs
+	composer phpcs -- --standard=PSR12 app/Http/Controllers routes tests
 
 lint-fix:
-	composer exec phpcs
+	composer phpcbf app routes tests database

@@ -12,7 +12,6 @@ class UrlCheckController extends Controller
     public function store(int $id): \Illuminate\Http\RedirectResponse
     {
         try {
-
             $url = DB::table('urls')->find($id);
 
             abort_unless($url, 404);
@@ -35,11 +34,8 @@ class UrlCheckController extends Controller
             DB::table('url_checks')->insert($check);
 
             flash('Страница успешно проверена')->warning();
-
         } catch (\Exception $e) {
-
             flash('Произошла ошибка при проверке')->error();
-
         }
         return redirect()->route('urls.show', $id);
     }
