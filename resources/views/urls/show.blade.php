@@ -7,7 +7,7 @@
         <div class="container-lg">
             <h1 class="mt-3 mb-3">Сайт: {{ $url->name }}</h1>
             <div class="table-responsive">
-                <table class="table table-bordered table-hover text-nowrap">
+                <table class="table table-bordered table-hover text-nowrap" data-test="url">
                     <tbody>
                     <tr>
                         <td>ID</td>
@@ -44,7 +44,7 @@
                             <tr>
                                 <td>{{ $urlCheck->id }}</td>
                                 <td>{{ $urlCheck->status_code }}</td>
-                                <td class="text-wrap">{{ $urlCheck->h1 }}</td>
+                                <td class="text-wrap">{{ Str::limit($urlCheck->h1), 50 }}</td>
                                 <td class="text-wrap">{{ Str::limit($urlCheck->title, 100) }}</td>
                                 <td class="text-wrap">{{ Str::limit($urlCheck->description, 100) }}</td>
                                 <td>{{ $urlCheck->created_at }}</td>
