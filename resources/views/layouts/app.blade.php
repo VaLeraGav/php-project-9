@@ -13,7 +13,7 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
 
-    <title>@yield('title')</title>
+    <title>Анализатор страниц</title>
 </head>
 <body class="min-vh-100 d-flex flex-column">
 <header class="flex-shrink-0">
@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('welcome') }}">Главная</a>
+                    <a class="nav-link" href="{{ route('welcome') }}">Главная</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('urls.index') }}">Сайты</a>

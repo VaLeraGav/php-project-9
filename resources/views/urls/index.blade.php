@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Сайты')
-
 @section('content')
     <div class="container-lg mt-3">
         <h1>Сайты</h1>

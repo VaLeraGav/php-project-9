@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Show')
-
 @section('content')
-
     <div class="container-lg mt-3">
         <h1>Сайт: {{ $url->name }}</h1>
         <div class="table-responsive">
@@ -53,5 +50,4 @@
         </table>
         {{ $urlChecks->links('pagination::bootstrap-4') }}
     </div>
-
 @endsection
