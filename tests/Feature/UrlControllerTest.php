@@ -45,6 +45,7 @@ class UrlControllerTest extends TestCase
         ];
         $response = $this->post(route('urls.store'), $data);
         $response->assertSessionHasNoErrors();
+        $response->assertRedirect()->assertStatus(302);
         $this->assertDatabaseHas('urls', $data['url']);
     }
 
