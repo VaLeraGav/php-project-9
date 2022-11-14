@@ -55,10 +55,9 @@ class UrlController extends Controller
             flash('Страница успешно добавлена')->success();
         }
         return redirect()->route('urls.show', $id);
-        // return redirect()->route('urls.show', ['url' => $id]);
     }
 
-    public function show($id)
+    public function show(int $id)
     {
         $url = DB::table('urls')->find($id);
 
