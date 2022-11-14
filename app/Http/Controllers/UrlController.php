@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\View;
 
 class UrlController extends Controller
 {
@@ -23,7 +23,7 @@ class UrlController extends Controller
         return view('urls.index', compact('urls', 'lastChecks'));
     }
 
-    public function store(Request $request): \Illuminate\Http\RedirectResponse
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'url.name' => 'url|required|max:255',
@@ -31,7 +31,8 @@ class UrlController extends Controller
 
         if ($validator->fails()) {
             flash('Некорректный URL')->error();
-            return redirect()->route('welcome')->withErrors($validator);
+            // return redirect()->route('welcome')->withErrors($validator);
+            return response(View::make('welcome'), 422);
         }
 
         $formData = $request->input('url');
@@ -54,6 +55,7 @@ class UrlController extends Controller
             flash('Страница успешно добавлена')->success();
         }
         return redirect()->route('urls.show', $id);
+        // return redirect()->route('urls.show', ['url' => $id]);
     }
 
     function show($id)
