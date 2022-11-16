@@ -23,7 +23,7 @@
         </div>
         <h2 class="mt-5 mb-3">Проверки</h2>
         <form class="mb-3" method="post" action="{{ route('urls.checks.store', $url->id) }}">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+            @csrf
             <input type="submit" class="btn btn-primary" value="Запустить проверку">
         </form>
         <table class="table table-bordered table-hover" data-test="checks">

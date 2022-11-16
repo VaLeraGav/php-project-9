@@ -48,8 +48,5 @@
         </div>
     </div>
 </footer>
-
-<div id="wt-sky-root"></div>
-
 </body>
 </html>
