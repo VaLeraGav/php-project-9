@@ -7,3 +7,9 @@ const mix = require('laravel-mix');
 // mix.scripts([
 //     'resources/js/app.js',
 // ], 'public/js/app.js');
+
+// mix.webpackConfig({
+//     devServer: {
+//         server: 'https',
+//     },
+// });

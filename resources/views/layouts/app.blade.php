@@ -6,8 +6,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="csrf-param" content="_token">
 
+    <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
     <link href= " {{ URL::asset('css/app.css') }}" rel="stylesheet">
-    <script type="text/javascript" src="{{ URL::asset('js/app.js') }}" defer=""></script>
 
     <title>Анализатор страниц</title>
 </head>
