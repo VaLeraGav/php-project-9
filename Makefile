@@ -9,6 +9,7 @@ setup:
 	php artisan migrate
 	php artisan db:seed
 	npm install
+	npm run prod
 
 update db:
 	rm database/database.sqlite
