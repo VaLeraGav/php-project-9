@@ -8,7 +8,7 @@ setup:
 	touch database/database.sqlite
 	php artisan migrate
 	php artisan db:seed
-	npm install
+	npm ci
 
 update db:
 	rm database/database.sqlite

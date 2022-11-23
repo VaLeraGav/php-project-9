@@ -17,10 +17,11 @@ class UrlCheckControllerTest extends TestCase
         ];
         $id = DB::table('urls')->insertGetId($data);
 
-        $fakeHtml = file_get_contents(__DIR__ . '/../fixtures/test.html');
+        $path = __DIR__ . '/../fixtures/test.html';
+        $fakeHtml = file_get_contents($path);
 
         if ($fakeHtml === false) {
-            throw new \Exception('failed to connect');
+            throw new \Exception(" $path path to the file is incorrect");
         }
 
         Http::fake([
