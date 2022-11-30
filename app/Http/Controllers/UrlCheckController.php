@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use DiDom\Document;
 use Illuminate\Http\Client\HttpClientException;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
@@ -35,8 +36,8 @@ class UrlCheckController extends Controller
             DB::table('url_checks')->insert($check);
 
             flash('Страница успешно проверена')->warning();
-        } catch (HttpClientException $e) {
-            flash('Произошла ошибка при проверке')->error();
+        } catch (HttpClientException | RequestException $e) {
+            flash("Не удалось разрешить имя хоста")->error();
         }
         return redirect()->route('urls.show', $id);
     }

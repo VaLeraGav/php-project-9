@@ -21,7 +21,7 @@ class UrlCheckControllerTest extends TestCase
         $fakeHtml = file_get_contents($path);
 
         if ($fakeHtml === false) {
-            throw new \Exception(" $path path to the file is incorrect");
+            throw new \Exception("error with the file $path");
         }
 
         Http::fake([
