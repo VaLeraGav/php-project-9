@@ -37,7 +37,7 @@ class UrlCheckController extends Controller
 
             flash('Страница успешно проверена')->warning();
         } catch (HttpClientException | RequestException $e) {
-            flash("Не удалось разрешить имя хоста")->error();
+            flash($e->getMessage())->error();
         }
         return redirect()->route('urls.show', $id);
     }
