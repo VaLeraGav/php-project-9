@@ -5,7 +5,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/3151b9a84aca358cca2c/maintainability)](https://codeclimate.com/github/VaLeraGav/php-project-lvl3/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/3151b9a84aca358cca2c/test_coverage)](https://codeclimate.com/github/VaLeraGav/php-project-lvl3/test_coverage)
 
-The third project of four, within the framework of the profession of a PHP programmer on Laravel [Hexlet](https://ru.hexlet.io/professions/php).
+The third project of four, within the framework of the profession of a PHP programmer on
+Laravel [Hexlet](https://ru.hexlet.io/professions/php).
 
 ## Project Description
 
